@@ -138,11 +138,6 @@ fi
 chmod +x ~/.claude/scripts/notify-pretty.sh
 ```
 
-> **注意**：脚本中的 `-execute` 参数使用了 Cursor 编辑器。如果你使用 VS Code，请改为：
-> ```bash
-> -execute "/usr/local/bin/code '$CLAUDE_PROJECT_DIR'"
-> ```
-
 ### 第 8 步：配置 Claude Code Hooks
 
 编辑 Claude Code 配置文件 `~/.claude/settings.json`，添加 hooks 配置：
@@ -177,6 +172,28 @@ chmod +x ~/.claude/scripts/notify-pretty.sh
 ```
 
 如果你已有 `settings.json` 文件，只需合并 `hooks` 部分即可。
+
+### 第 8.1 步：配置点击通知后的跳转行为（可选）
+
+脚本中的 `-execute` 参数定义了点击通知后执行的命令。默认配置为使用 **Cursor** 编辑器打开项目：
+
+```bash
+-execute "/usr/local/bin/cursor '$CLAUDE_PROJECT_DIR'"
+```
+
+如果你使用其他 IDE，请修改 `notify-pretty.sh` 中的 `-execute` 参数：
+
+| IDE | 配置示例 |
+|-----|----------|
+| Cursor | `-execute "/usr/local/bin/cursor '$CLAUDE_PROJECT_DIR'"` |
+| VS Code | `-execute "/usr/local/bin/code '$CLAUDE_PROJECT_DIR'"` |
+| WebStorm | `-execute "/usr/local/bin/webstorm '$CLAUDE_PROJECT_DIR'"` |
+| Sublime Text | `-execute "/usr/local/bin/subl '$CLAUDE_PROJECT_DIR'"` |
+| Vim/Neovim | `-execute "open -a Terminal '$CLAUDE_PROJECT_DIR'"` |
+
+> **提示**：如果你不确定你的 IDE 命令行工具路径，可以使用 `which <命令>` 查找，例如 `which code`。
+>
+> 如果你使用其他 IDE 或有特殊需求，可以让 AI 帮你找到正确的配置方式。
 
 ### 第 9 步：授权通知权限
 
