@@ -265,9 +265,12 @@ export CLAUDE_PROJECT_DIR="$HOME/.claude/scripts"
 ├── icons/
 │   ├── claude_icon.png           # Claude 图标 PNG 格式
 │   └── claude_icon.icns          # Claude 图标 ICNS 格式
-└── scripts/
-    └── notify-pretty.sh          # 通知脚本
+├── scripts/
+│   └── notify-pretty.sh          # 通知脚本
+└── settings.json                 # Claude Code 配置文件（包含 hooks）
 ```
+
+> 本仓库提供了 `settings.example.json` 示例配置，可直接复制到 `~/.claude/settings.json` 使用。
 
 ## 遇到的问题
 
